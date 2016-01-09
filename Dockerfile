@@ -14,8 +14,8 @@ RUN add-apt-repository ppa:ethereum/ethereum
 RUN add-apt-repository ppa:ethereum/ethereum-dev
 RUN apt-get update
 RUN apt-get install -q -y geth
-
+add test.pd /code/test.pd
 EXPOSE 8545
 EXPOSE 30303
-
+run geth --password /code/test.pd  account new
 ENTRYPOINT ["/usr/bin/geth"]
