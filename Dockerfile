@@ -16,7 +16,9 @@ RUN apt-get update
 RUN apt-get install -q -y geth
 RUN apt-get install -q -y solc
 add test.pd /code/test.pd
+add test.sh /code/test.sh
 EXPOSE 8545
 EXPOSE 30303
 run geth --password /code/test.pd  account new
-ENTRYPOINT ["/usr/bin/geth"]
+#ENTRYPOINT ["/usr/bin/geth"]
+cmd ["sh","/code/test.sh"]
